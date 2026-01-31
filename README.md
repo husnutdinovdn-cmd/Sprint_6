@@ -21,6 +21,12 @@ pip install -r requirements.txt
 pytest
 ```
 
+### Allure-отчёт
+```bash
+pytest
+allure serve allure-results
+```
+
 ### Конкретный тест-класс
 ```bash
 pytest tests/test_faq.py -v

@@ -3,15 +3,19 @@
 Проверка: при клике на стрелочку/вопрос открывается соответствующий текст
 """
 import pytest
+import allure
 
 from pages.main_page import MainPage
 from data.faq_data import FAQ_EXPECTED_ANSWERS
 
 
+@allure.feature('FAQ')
+@allure.story('Выпадающий список "Вопросы о важном"')
 class TestFAQ:
     """Тесты для FAQ аккордеона"""
 
     @pytest.mark.parametrize('question_index', list(FAQ_EXPECTED_ANSWERS.keys()))
+    @allure.title('Вопрос #{question_index}: отображается корректный ответ')
     def test_faq_question_opens_correct_answer(self, browser, question_index):
         """
         Проверяет, что при клике на вопрос открывается соответствующий текст ответа.

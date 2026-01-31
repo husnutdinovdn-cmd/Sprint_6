@@ -3,12 +3,15 @@
 Проверка полного флоу с двумя наборами данных и двумя точками входа
 """
 import pytest
+import allure
 
 from pages.main_page import MainPage
 from pages.order_page import OrderPage
 from data.order_data import ORDER_DATA_SET_1, ORDER_DATA_SET_2
 
 
+@allure.feature('Заказ самоката')
+@allure.story('Позитивный сценарий заказа')
 class TestOrder:
     """Тесты процесса заказа самоката"""
 
@@ -20,6 +23,7 @@ class TestOrder:
         ],
         ids=['Верхняя кнопка Заказать', 'Нижняя кнопка Заказать']
     )
+    @allure.title('Успешный заказ: {order_button} + набор данных')
     def test_successful_order_flow(self, browser, order_button, order_data):
         """
         Позитивный сценарий заказа:
