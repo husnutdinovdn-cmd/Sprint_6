@@ -2,13 +2,17 @@
 Тесты навигации по логотипам
 """
 import time
+import allure
 
 from pages.main_page import MainPage
 
 
+@allure.feature('Навигация')
+@allure.story('Логотипы')
 class TestLogoNavigation:
     """Тесты переходов по логотипам"""
 
+    @allure.title('Логотип Самоката ведёт на главную страницу')
     def test_scooter_logo_opens_main_page(self, browser):
         """
         Проверяет: при клике на логотип Самоката открывается главная страница.
@@ -31,6 +35,7 @@ class TestLogoNavigation:
             f"Ожидалась главная страница Самоката. Текущий URL: {current_url}"
         )
 
+    @allure.title('Логотип Яндекса открывает Дзен в новом окне')
     def test_yandex_logo_opens_dzen(self, browser):
         """
         Проверяет: при клике на логотип Яндекса в новом окне
